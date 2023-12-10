@@ -107,7 +107,7 @@ const VoiceRSS = {
 // Passing joke to voice RSS
 
 function tellMe(joke) {
-//   console.log("I got the joke:", joke);
+  //   console.log("I got the joke:", joke);
   VoiceRSS.speech({
     key: "dd535c1beb414c9683daf33cbe6a7f07",
     src: joke,
@@ -140,6 +140,4 @@ async function getJokes() {
   }
 }
 
-button.addEventListener('click', tellMe);
-
-getJokes();
+button.addEventListener("click", getJokes);
