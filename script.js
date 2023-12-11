@@ -1,5 +1,6 @@
 const button = document.getElementById("button");
 const audioElement = document.getElementById("audio");
+
 // VoiceRSS Javascript SDK
 const VoiceRSS = {
   speech: function (e) {
@@ -104,6 +105,10 @@ const VoiceRSS = {
   },
 };
 
+function toggleButton() {
+  button.disabled = !button.disabled;
+}
+
 // Passing joke to voice RSS
 
 function tellMe(joke) {
@@ -134,6 +139,7 @@ async function getJokes() {
       joke = data.joke;
     }
     tellMe(joke);
+    toggleButton();
   } catch (error) {
     //catch erros
     console.log("error", error);
@@ -141,3 +147,4 @@ async function getJokes() {
 }
 
 button.addEventListener("click", getJokes);
+audioElement.addEventListener("ended", toggleButton);
